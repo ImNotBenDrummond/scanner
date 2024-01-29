@@ -75,9 +75,19 @@
 
         Quagga.onDetected(function (result) {
           const code = result.codeResult.code;
-          resultElement.innerHTML = `${code}`;
+          resultElement.innerHTML = `Detected barcode: ${code}`;
+          copyToClipboard(code);
           Quagga.stop();
         });
+
+        function copyToClipboard(text) {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        }
       }
     });
   </script>
