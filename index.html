@@ -75,7 +75,7 @@
 
         Quagga.onDetected(function (result) {
           const code = result.codeResult.code;
-          resultElement.innerHTML = `Detected barcode: ${code}`;
+          resultElement.innerHTML = `${code}`;
           Quagga.stop();
         });
       }
